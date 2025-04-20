@@ -1,8 +1,11 @@
 import streamlit as st
 import yfinance as yf
 import datetime
+import pickle
 st.title("Stock price Analyzer")
 ticker_data = yf.Ticker("GOOG")
+with open('my_streamlit_model.pkl', 'rb') as file:
+    loaded_model = pickle.load(file)
 
 col1, col2 = st.columns(2)
 with col1:
